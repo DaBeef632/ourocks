@@ -65,6 +65,12 @@
 			<artifactId>untappd4j</artifactId>
 			<version>1.2.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>1.12.9</version>
+		</dependency>
 
 	</dependencies>
 
