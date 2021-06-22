@@ -36,6 +36,10 @@ public class BeerService {
         return beerRepository.findBeerByBeerId(beerId).orElseThrow(() -> new BeerNotFoundException("Beer by id " + beerId + " was not found"));
     }
 
+    public Beer findBeerByBeerName(String beerName){
+        return beerRepository.findBeerByBeerName(beerName);
+    }
+
     public void deleteBeer(Long beerId){
         beerRepository.deleteBeerByBeerId(beerId);
     }

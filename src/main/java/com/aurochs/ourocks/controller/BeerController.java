@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import retrofit2.http.Path;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,9 +29,15 @@ public class BeerController {
         return new ResponseEntity<>(beers, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/find/{beerId}")
     public ResponseEntity<Beer> getBeerById(@PathVariable("beerId") Long beerId){
         Beer beer = beerService.findBeerById(beerId);
+        return new ResponseEntity<>(beer, HttpStatus.OK);
+    }
+
+    @GetMapping("/find/{beerName}")
+    public ResponseEntity<Beer> getBeerByBeerName(@PathVariable("beerName") String beerName){
+        Beer beer = beerService.findBeerByBeerName(beerName);
         return new ResponseEntity<>(beer, HttpStatus.OK);
     }
 
@@ -47,7 +54,7 @@ public class BeerController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Beer> deleteBeer(@PathVariable("beerId") Long beerId){
+    public ResponseEntity<Beer> deleteBeer(@PathVariable("id") Long beerId){
         beerService.deleteBeer(beerId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
